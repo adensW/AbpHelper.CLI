@@ -14,6 +14,7 @@ This argument takes effect only if '--skip-db-migrations' is NOT specified.";
         [Argument("entity", Description = "The entity class name")]
         public string Entity { get; set; } = null!;
 
+
         [Option("migration-project-name", Description = MigrationProjectNameDescription)]
         public string MigrationProjectName { get; set; } = null!;
 

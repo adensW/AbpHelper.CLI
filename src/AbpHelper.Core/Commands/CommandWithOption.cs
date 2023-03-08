@@ -74,6 +74,12 @@ namespace EasyAbp.AbpHelper.Core.Commands
                                 step.VariableName = ProjectNameVariableName;
                                 step.ValueExpression = new LiteralExpression(option.ProjectName);
                             })
+                          .Then<SetVariable>(
+                            step =>
+                            {
+                                step.VariableName = CommandConsts.SubnameVariableName;
+                                step.ValueExpression = new LiteralExpression(option.Subname);
+                            })
                         .Then<ProjectInfoProviderStep>()
                     ;
 

@@ -32,11 +32,11 @@ namespace EasyAbp.AbpHelper.Core.Workflow.Generate.Crud
                             ifElse
                                 .When(OutcomeNames.False)
                                 .Then<FileFinderStep>(
-                                    step => { step.SearchFileName = new JavaScriptExpression<string>("`${ProjectInfo.Name}Permissions.cs`"); })
+                                    step => { step.SearchFileName = new JavaScriptExpression<string>("`${ProjectInfo.Name}${ProjectInfo.Subname}Permissions.cs`"); })
                                 .Then<PermissionsStep>()
                                 .Then<FileModifierStep>()
                                 .Then<FileFinderStep>(
-                                    step => { step.SearchFileName = new JavaScriptExpression<string>("`${ProjectInfo.Name}PermissionDefinitionProvider.cs`"); })
+                                    step => { step.SearchFileName = new JavaScriptExpression<string>("`${ProjectInfo.Name}${ProjectInfo.Subname}PermissionDefinitionProvider.cs`"); })
                                 .Then<PermissionDefinitionProviderStep>()
                                 .Then<FileModifierStep>()
                                 .Then(ActivityNames.AutoMapper)
@@ -44,7 +44,7 @@ namespace EasyAbp.AbpHelper.Core.Workflow.Generate.Crud
                         }
                     )
                     /* Add mapping */
-                    .Then<FileFinderStep>(step => step.SearchFileName = new JavaScriptExpression<string>("`${ProjectInfo.Name}ApplicationAutoMapperProfile.cs`")).WithName(ActivityNames.AutoMapper)
+                    .Then<FileFinderStep>(step => step.SearchFileName = new JavaScriptExpression<string>("`${ProjectInfo.Name}${ProjectInfo.Subname}ApplicationAutoMapperProfile.cs`")).WithName(ActivityNames.AutoMapper)
                     .Then<ApplicationAutoMapperProfileStep>()
                     .Then<FileModifierStep>()
                 ;

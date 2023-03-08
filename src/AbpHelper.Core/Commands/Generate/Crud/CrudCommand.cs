@@ -31,6 +31,7 @@ namespace EasyAbp.AbpHelper.Core.Commands.Generate.Crud
 
             return base.ConfigureBuild(option, activityBuilder)
                 .AddOverwriteWorkflow()
+              
                 .Then<SetVariable>(
                     step =>
                     {
