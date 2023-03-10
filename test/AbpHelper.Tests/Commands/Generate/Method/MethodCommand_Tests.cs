@@ -1,4 +1,5 @@
 ﻿using EasyAbp.AbpHelper.Core.Commands.Generate.Crud;
+using EasyAbp.AbpHelper.Core.Commands.Generate.Methods;
 using EasyAbp.AbpHelper.Core.Commands.Generate.Service;
 using System;
 using System.Collections.Generic;
@@ -9,18 +10,18 @@ using System.Threading.Tasks;
 using Xunit;
 
 namespace EasyApp.AbpHelper.Tests.Commands.Generate.Crud;
-public class ServiceCommand_Tests: CommandTestsBase
+public class MethodCommand_Tests: CommandTestsBase
 {
   
     [Fact]
-    public async Task Should_Service_Correct()
+    public async Task Should_Method_Correct()
     {   
-        var _crudCommand=GetRequiredService<ServiceCommand>();
-        await _crudCommand.RunCommand(new ServiceCommandOption
+        var _crudCommand=GetRequiredService<MethodsCommand>();
+        await _crudCommand.RunCommand(new MethodsCommandOption
         {
-            Name="BookmarkPublic",
+            ServiceName = "BookmarkPublic",
+            MethodNames=new string[]{ "GetAllRelatedBookmarks" },
             Directory= @"C:\Users\wangdingchen\Repos\Adens\Woo\Ego\modules\navigator",
-            Folder= "Bookmarks",
             ProjectName="Navigator",
             Subname ="Public"
         });
