@@ -4,6 +4,6 @@ namespace {{ ProjectInfo.FullName }}.{{ Option.Folder | string.replace "/" "." }
 namespace {{ ProjectInfo.FullName }};
 {{~ end ~}}
 
-public class {{ Option.Name }}AppService : {{ ProjectInfo.Name }}AppService, I{{ Option.Name }}AppService
+public class {{ Option.Name }}AppService : {{ ProjectInfo.Name }}{{ ProjectInfo.Subname }}AppService, I{{ Option.Name }}AppService
 {
 }

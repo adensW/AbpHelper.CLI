@@ -16,6 +16,7 @@ namespace EasyAbp.AbpHelper.Core.Steps
         protected virtual string OptionVariableName => CommandConsts.OptionVariableName;
         protected virtual string BaseDirectoryVariableName => CommandConsts.BaseDirectoryVariableName;
         protected virtual string ProjectNameVariableName => CommandConsts.ProjectNameVariableName;
+        protected virtual string SubnameVariableName => CommandConsts.SubnameVariableName;
         protected virtual string ExcludeDirectoriesVariableName => CommandConsts.ExcludeDirectoriesVariableName;
         protected virtual string OverwriteVariableName => CommandConsts.OverwriteVariableName;
 
@@ -30,7 +31,11 @@ namespace EasyAbp.AbpHelper.Core.Steps
             get => GetState(() => new JavaScriptExpression<string>(ProjectNameVariableName));
             set => SetState(value);
         }
-
+        public WorkflowExpression<string> Subname
+        {
+            get => GetState(() => new JavaScriptExpression<string>(SubnameVariableName));
+            set => SetState(value);
+        }
         public WorkflowExpression<string> BaseDirectory
         {
             get => GetState(() => new JavaScriptExpression<string>(BaseDirectoryVariableName));

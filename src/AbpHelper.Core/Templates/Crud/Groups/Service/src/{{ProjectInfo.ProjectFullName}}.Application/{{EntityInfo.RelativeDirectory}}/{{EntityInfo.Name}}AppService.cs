@@ -21,9 +21,9 @@ using System.Linq;
 using System.Threading.Tasks;
 {{~ end -}}
 {{~ if !Option.SkipPermissions
-    permissionNamesPrefix = ProjectInfo.Name + "Permissions." + EntityInfo.Name
+    permissionNamesPrefix = ProjectInfo.Name+ ProjectInfo.Subname + "Permissions." + EntityInfo.Name
 ~}}
-using {{ ProjectInfo.FullName }}.Permissions;
+using {{ ProjectInfo.ProjectFullName }}.Permissions;
 {{~ end ~}}
 using {{ EntityInfo.Namespace }}.Dtos;
 {{~ if Option.SkipGetListInputDto ~}}

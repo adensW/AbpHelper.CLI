@@ -6,6 +6,7 @@
         public const string BaseDirectoryVariableName = "BaseDirectory";
         public const string ExcludeDirectoriesVariableName = "ExcludeDirectories";
         public const string ProjectNameVariableName = "ProjectName";
+        public const string SubnameVariableName = "Subname";
         public const string OverwriteVariableName = "Overwrite";
     }
 }

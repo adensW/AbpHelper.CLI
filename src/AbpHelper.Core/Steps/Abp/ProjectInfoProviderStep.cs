@@ -20,6 +20,8 @@ namespace EasyAbp.AbpHelper.Core.Steps.Abp
             LogInput(() => projectName);
             var excludeDirectories = await context.EvaluateAsync(ExcludeDirectories, cancellationToken);
             LogInput(() => excludeDirectories, string.Join("; ", excludeDirectories));
+            var subName = await context.EvaluateAsync(Subname, cancellationToken);
+            LogInput(() => subName);
 
             TemplateType templateType;
             if (FileExistsInDirectory(baseDirectory, "*.Host.Shared.csproj", excludeDirectories) || FileExistsInDirectory(baseDirectory, "*.Installer.csproj", excludeDirectories))
@@ -76,7 +78,7 @@ namespace EasyAbp.AbpHelper.Core.Steps.Abp
                 tiered = FileExistsInDirectory(baseDirectory, "*.IdentityServer.csproj", excludeDirectories);
             }
 
-            var projectInfo = new ProjectInfo(baseDirectory, fullName, templateType, uiFramework, tiered, projectName);
+            var projectInfo = new ProjectInfo(baseDirectory, fullName, templateType, uiFramework, tiered, projectName,subName);
 
             context.SetLastResult(projectInfo);
             context.SetVariable("ProjectInfo", projectInfo);
